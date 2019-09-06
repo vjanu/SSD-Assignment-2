@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <title>OAuth Assignment SSD</title>
+ <script>
+	 function myFunction() {
+  $( "#alert1" ).show();
+
+};
+</script>
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+ 
+  <!-- Custom CSS -->
+  <link href="css/stylish-portfolio.min2.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Header -->
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+       <div>
+     <input class="btn" id="files" type="file" name="files[]" multiple/>
+     <button class="btn btn-primary" id="upload" onclick="myFunction()">Upload</button>
+	
+	<br/><br/>
+     <div class="alert alert-success collapse" role="alert" id="alert1">
+                Your File is Successfully Uploaded to Google Drive!
+        </div>
+   </div> 
+   <div id="result">
+       
+   </div>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="upload.js"></script>
+</body>
+
+</html>
