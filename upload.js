@@ -1,16 +1,26 @@
 
 $(document).ready(function(){
     
-
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
-    const redirect_uri = "http://localhost:8081/GDrive/upload.html" // replace with your redirect_uri;
-    const client_secret = "9uXTygPgsHcmMLH7NsU_Gvhk"; // replace with your client secret
+	
+	//generated client id
+    var client_id = "349805278143-c2vi2ruhvv8032fq9558sr111ohbn6pp.apps.googleusercontent.com";
+	
+	 //url set for the redirection in google console
+    const redirect_uri = "http://localhost:8081/GDrive/upload.html";
+	
+	 //secret key generated at the time of application creation
+    const client_secret = "9uXTygPgsHcmMLH7NsU_Gvhk";
+	
+	//invoking url for google drive Resource Server
     const scope = "https://www.googleapis.com/auth/drive";
+	
+	//access token will be created at the time of authentication
     var access_token= "";
-    var client_id = "349805278143-c2vi2ruhvv8032fq9558sr111ohbn6pp.apps.googleusercontent.com"// replace it with your client id;
-    
-
+	
+	  
+	//invoking resource server API
     $.ajax({
         type: 'POST',
         url: "https://www.googleapis.com/oauth2/v4/token",
@@ -19,15 +29,15 @@ $(document).ready(function(){
             client_secret:client_secret,
         client_id:client_id,
         scope:scope,
-        grant_type:"authorization_code"},
+        grant_type:"authorization_code"}, //in here we use authorization code as the OAuth grant type out of 4 types
         dataType: "json",
         success: function(resultData) {
            
-            
+           //saving data in local storage of JS
            localStorage.setItem("accessToken",resultData.access_token);
            localStorage.setItem("refreshToken",resultData.refreshToken);
            localStorage.setItem("expires_in",resultData.expires_in);
-           window.history.pushState({}, document.title, "/GDrive/" + "upload.html");
+           window.history.pushState({}, document.title, "/GDrive/" + "upload.html"); //redirecting to same page after uploading a file
            
            
            
