@@ -4,7 +4,7 @@ $(document).ready(function(){
      var clientId = "349805278143-c2vi2ruhvv8032fq9558sr111ohbn6pp.apps.googleusercontent.com";
 	 
 	 //url set for the redirection in google console
-     var redirect_uri = "http://localhost:8081/GDrive/upload.html";
+     var redirect_uri = "http://localhost:3000/upload.html";
 	 
 	 //invoking url for google drive Resource Server
      var scope = "https://www.googleapis.com/auth/drive";
@@ -32,3 +32,4 @@ $(document).ready(function(){
      }
 
 });
+

@@ -8,7 +8,7 @@ $(document).ready(function(){
     var client_id = "349805278143-c2vi2ruhvv8032fq9558sr111ohbn6pp.apps.googleusercontent.com";
 	
 	 //url set for the redirection in google console
-    const redirect_uri = "http://localhost:8081/GDrive/upload.html";
+    const redirect_uri = "http://localhost:3000/upload.html";
 	
 	 //secret key generated at the time of application creation
     const client_secret = "9uXTygPgsHcmMLH7NsU_Gvhk";
@@ -37,7 +37,7 @@ $(document).ready(function(){
            localStorage.setItem("accessToken",resultData.access_token);
            localStorage.setItem("refreshToken",resultData.refreshToken);
            localStorage.setItem("expires_in",resultData.expires_in);
-           window.history.pushState({}, document.title, "/GDrive/" + "upload.html"); //redirecting to same page after uploading a file
+           window.history.pushState({}, document.title, "/" + "upload.html"); //redirecting to same page after uploading a file
            
            
            
