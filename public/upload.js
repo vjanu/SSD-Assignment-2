@@ -38,10 +38,7 @@ $(document).ready(function(){
            localStorage.setItem("refreshToken",resultData.refreshToken);
            localStorage.setItem("expires_in",resultData.expires_in);
            window.history.pushState({}, document.title, "/" + "upload.html"); //redirecting to same page after uploading a file
-           
-           
-           
-           
+                      
         }
   });
 
@@ -72,6 +69,7 @@ $(document).ready(function(){
         formData.append("file", this.file, this.getName());
         formData.append("upload_file", true);
     
+		//request to uload it to GDrive
         $.ajax({
             type: "POST",
             beforeSend: function(request) {
@@ -105,25 +103,13 @@ $(document).ready(function(){
     };
     
     Upload.prototype.progressHandling = function (event) {
-        /*var percent = 0;
-        var position = event.loaded || event.position;
-        var total = event.total;
-        var progress_bar_id = "#progress-wrp";
-        if (event.lengthComputable) {
-            percent = Math.ceil(position / total * 100);
-        }
-        // update progressbars classes so it fits your code
-        $(progress_bar_id + " .progress-bar").css("width", +percent + "%");
-        $(progress_bar_id + " .status").text(percent + "%");*/
-		
-		
+        var percent = 0;
     };
 
+	//uploading the file
     $("#upload").on("click", function (e) {
         var file = $("#files")[0].files[0];
-        var upload = new Upload(file);
-    
-        // maby check size or type here with upload.getSize() and upload.getType()
+        var upload = new Upload(file); 
     
         // execute upload
         upload.doUpload();
